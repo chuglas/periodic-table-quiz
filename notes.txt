@@ -1,0 +1,23 @@
+
+USING SCIENCE TO ANGER THE UNJUST RULER WHO DOESN'T BELIEVE IN SCIENCE
+
+Trivia game on the Periodic Table of Elements. Two player game. Fastest time wins.
+
+Random periodic element names will display on the screen and the player must type in the answer for the periodic table symbol.
+
+-- If the answer is correct, the anger level of the unjust ruler will rise.
+-- If the answer is incorrect, the anger level of the unjust ruler will lower.
+
+The player's time is recorded until the angry ruler reaches max angriness (aka 15 points - each correct answer worth one point).
+
+If a player chooses to play in Spanish - which angers the unjust ruler even more - each correct answer is worth 1.5 points. The element names will be displayed in Spanish.
+
+Whichever player angers the ruler the fastest wins the game.
+
+
+
+
+[X, X, X, X, X]
+[X, X, X, X, X]
+[X, X, X, X, X]
+[X, X, X, X, X]

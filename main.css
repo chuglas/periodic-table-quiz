@@ -1,0 +1,77 @@
+/*font-family: 'Droid Sans Mono', monospace;
+font-family: 'Patua One', cursive;
+font-family: 'Lora', serif;*/
+
+body {
+  background: #ffeebd;
+  box-sizing: border-box;
+}
+
+
+nav {
+  position: fixed;
+  height: 100%;
+  width: 25%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #decfa5;
+}
+
+main {
+  position: fixed;
+  height: 100%;
+  width: 75%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  color: #958c71;
+  padding: 30px;
+}
+
+h3 {
+  font-family: 'Lora', sans-serif;
+}
+
+h1 {
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 6rem;
+  margin: 10px 0;
+}
+
+h3 span {
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 2rem;
+  letter-spacing:4px;
+}
+
+.symbol-wrapper {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.symbol {
+  height: 100px;
+  width: 100px;
+  background-color: #958c71;
+  margin: 5px;
+  color: #ffeebd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.circle {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  background: #c9bc97;
+  border-radius: 50%;
+  top: 25px;
+  left: -125px;
+}
