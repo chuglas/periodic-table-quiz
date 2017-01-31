@@ -12,7 +12,7 @@ nav {
   position: fixed;
   height: 100%;
   width: 25%;
-  right: 3%;
+  right: 0;
   top: 0;
   bottom: 0;
   background: #decfa5;
@@ -23,8 +23,6 @@ nav {
   justify-content: center;
   align-items: center;
 }
-
-
 
 .element {
   animation: pulse 5s infinite;
@@ -42,12 +40,22 @@ nav {
   }
 }
 
+.status-bar-wrapper {
+  height: 100%;
+  width: 5%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background: #decfa5;
+}
+
 .status-bar {
-  height: 5%;
-  width: 3%;
+  height: 0%;
+  width: 100%;
   top: 50%;
   transform: translateY(-50%);
-  right: 0;
+  left: 0;
   position: absolute;
   background-color: #FBB040;
   transition: 5000ms;
@@ -57,10 +65,10 @@ nav {
 main {
   position: fixed;
   height: 100%;
-  width: 75%;
+  width: 70%;
   top: 0;
   bottom: 0;
-  left: 0;
+  left: 5%;
   color: #958c71;
   padding: 30px;
   box-sizing: border-box;
@@ -155,6 +163,7 @@ h4 {
   width: 200px;
   height: 200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .time-bubble h1 {
@@ -163,4 +172,31 @@ h4 {
 
 .time-bubble h5 {
   margin: 0;
+}
+
+.start-game-button {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  background: #585240;
+  color: #ffeebd;
+  font-size: 2rem;
+  top: 0;
+  left: 0;
+  font-family: 'Droid Sans Mono', monospace;
+  border: none;
+  outline: none;
+  transition: 200ms ease;
+  cursor: pointer;
+}
+
+
+.start-game-button:disabled:hover {
+  cursor: not-allowed;
+  transform: none;
+}
+
+.start-game-button:hover {
+  transform: rotate(15deg);
 }

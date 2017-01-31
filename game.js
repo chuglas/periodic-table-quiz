@@ -26,11 +26,9 @@ function shuffle(array) {
 Game.prototype.randomElement = function(array) {
   var randomNum = Math.floor(Math.random() * array.length);
   var randomElement = array[randomNum];
-  var randomElementName = randomElement.name;
-  $('.name-display').html(randomElementName);
-  var randomElementId = randomElement.id;
-  $('.name-display').attr("id", randomElementId);
-  return randomElementId;
+  $('.name-display').html(randomElement.name);
+  $('.name-display').attr("id", randomElement.id);
+  return randomElement.id;
 };
 
 //Clears Elements From Div Before Next Question
@@ -44,12 +42,10 @@ Game.prototype.elementShuffle = function() {
   var sliced = shuffle(elements);
   this.randomElement(sliced);
   for (var i = 0; i < sliced.length; i++) {
-    var elementSym = sliced[i].symbol;
-    var elementId = sliced[i].id;
     var div = $("<div></div>");
     div.addClass("symbol");
-    div.attr("id", elementId);
-    div.html(elementSym);
+    div.attr("id", sliced[i].id);
+    div.html(sliced[i].symbol);
     $('#symbol-container').append(div);
   }
 };
@@ -72,6 +68,7 @@ Game.prototype.angerLevel = function() {
   }
 };
 
+//Checks The Guess & Starts & Pushes A New Question
 Game.prototype.checkGuess = function() {
   var self = this;
   $('.symbol').click(function(){
@@ -80,7 +77,7 @@ Game.prototype.checkGuess = function() {
     if (guess === correct) {
       self.currentScore = self.currentScore + 1;
       self.angerLevel();
-      newRound();
+      self.newRound();
     }
     else {
       self.currentScore = self.currentScore - 1;
@@ -88,7 +85,7 @@ Game.prototype.checkGuess = function() {
         self.currentScore = 0;
       }
       self.angerLevel();
-      newRound();
+      self.newRound();
     }
   });
 };
@@ -105,35 +102,35 @@ Game.prototype.timer = function() {
       self.finalTime = i;
       $('#counter-1').html(self.finalTime);
       clearInterval(self.timer);
+      return(self.finalTime);
     }
     i++;
   }, 1000);
 };
 
-
-var newGame = new Game();
-
-newGame.elementShuffle();
-newGame.checkGuess();
-newGame.timer();
-
-var newRound = function() {
-  newGame.elementShuffle();
-  newGame.checkGuess();
+//Pulls Up A New Question
+Game.prototype.newRound = function() {
+  this.elementShuffle();
+  this.checkGuess();
   console.log("new round started");
-  console.log("current score: " + newGame.currentScore );
+  console.log("current score: " + this.currentScore );
 };
 
+// var newGame = new Game();
+// var newGame2 = new Game();
 
-//// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-// onclick
-// -- check guess
-// -- check answer
-// ---- if guess = answer
-// ------ dom actions +
-// ---- else
-// ------ dom actions -
-// -- reshuffle everything
-// -- re-randomize array
-// -- re-display divs
+$('#player-one-start').click(function(){
+  var newGame = new Game();
+  newGame.elementShuffle();
+  newGame.checkGuess();
+  newGame.timer();
+  $('#player-one-start').remove();
+});
+
+$('#playerTwoStart').click(function(){
+  var newGame2 = new Game();
+  newGame2.elementShuffle();
+  newGame2.checkGuess();
+  newGame2.timer();
+});

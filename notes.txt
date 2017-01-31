@@ -18,9 +18,15 @@ Whichever player angers the ruler the fastest wins the game.
 
 
 
-Start Game
--- Sets a new board.
+//// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-On click of div
-  - grabs that ID
-  - 
+// onclick
+// -- check guess
+// -- check answer
+// ---- if guess = answer
+// ------ dom actions +
+// ---- else
+// ------ dom actions -
+// -- reshuffle everything
+// -- re-randomize array
+// -- re-display divs
