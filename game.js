@@ -2,6 +2,8 @@ var Game = function() {
     this.player = '';
     this.endScore = 10;
     this.currentScore = 0;
+    this.maxTime = 1000;
+    this.finalTime = 0;
 };
 
 // RANDOMIZE ARRAY of 20 ELEMENTS
@@ -57,16 +59,16 @@ Game.prototype.angerLevel = function() {
   var eyes = $('.st5');
   var status = $('.status-bar');
   switch(this.currentScore) {
-    case 0: face.css("fill", "#fbb040"); status.css("background-color", "#fbb040"); status.css("height", "10%"); break;
-    case 1: face.css("fill", "#f99d33"); status.css("background-color", "#f99d33"); status.css("height", "20%"); break;
-    case 2: face.css("fill", "#f68b28"); status.css("background-color", "#f68b28"); status.css("height", "30%"); break;
-    case 3: face.css("fill", "#f47920"); status.css("background-color", "#f47920"); status.css("height", "40%"); break;
-    case 4: face.css("fill", "#f26522"); status.css("background-color", "#f26522"); status.css("height", "50%"); break;
-    case 5: face.css("fill", "#f04e23"); status.css("background-color", "#f04e23"); status.css("height", "60%"); break;
-    case 6: face.css("fill", "#ed1c24"); status.css("background-color", "#ed1c24"); status.css("height", "70%"); break;
-    case 7: face.css("fill", "#c4161c"); status.css("background-color", "#c4161c"); status.css("height", "80%"); break;
-    case 8: face.css("fill", "#9e0b0f"); status.css("background-color", "#9e0b0f"); status.css("height", "90%"); eyes.css("fill", "#ec382c");break;
-    case 9: face.css("fill", "#790000"); status.css("background-color", "#790000"); status.css("height", "100%"); break;
+    case 1: face.css("fill", "#fbb040"); status.css("background-color", "#fbb040"); status.css("height", "10%"); break;
+    case 2: face.css("fill", "#f99d33"); status.css("background-color", "#f99d33"); status.css("height", "20%"); break;
+    case 3: face.css("fill", "#f68b28"); status.css("background-color", "#f68b28"); status.css("height", "30%"); break;
+    case 4: face.css("fill", "#f47920"); status.css("background-color", "#f47920"); status.css("height", "40%"); break;
+    case 5: face.css("fill", "#f26522"); status.css("background-color", "#f26522"); status.css("height", "50%"); break;
+    case 6: face.css("fill", "#f04e23"); status.css("background-color", "#f04e23"); status.css("height", "60%"); break;
+    case 7: face.css("fill", "#ed1c24"); status.css("background-color", "#ed1c24"); status.css("height", "70%"); break;
+    case 8: face.css("fill", "#c4161c"); status.css("background-color", "#c4161c"); status.css("height", "80%"); break;
+    case 9: face.css("fill", "#9e0b0f"); status.css("background-color", "#9e0b0f"); status.css("height", "90%"); eyes.css("fill", "#ec382c");break;
+    case 10: face.css("fill", "#790000"); status.css("background-color", "#790000"); status.css("height", "100%"); break;
   }
 };
 
@@ -74,12 +76,9 @@ Game.prototype.checkGuess = function() {
   var self = this;
   $('.symbol').click(function(){
     var guess = this.id;
-    console.log(guess + " is the guess");
     var correct = $('.name-display').attr('id');
-    console.log(correct + " is the right answer");
     if (guess === correct) {
       self.currentScore = self.currentScore + 1;
-      console.log('correct guesses = ' + self.currentScore);
       self.angerLevel();
       newRound();
     }
@@ -89,32 +88,34 @@ Game.prototype.checkGuess = function() {
         self.currentScore = 0;
       }
       self.angerLevel();
-      console.log('correct guesses = ' + self.currentScore);
       newRound();
     }
   });
 };
 
-Game.prototype.timer = function() { setInterval(function() {
-  for(i=0;i<this.maxSeconds;i++) {
-    if (this.currentScore < this.endScore) {
-      countdown.innerHTML = i;
-      i++;
+//Records The Time & The Finished Time
+Game.prototype.timer = function() {
+  var self = this;
+  var i = 0;
+  setInterval(function() {
+    if (self.currentScore <= self.endScore) {
+      $('#counter-1').html(i);
     }
-    else if (this.currentScore === this.endScore) {
-      countdown.innerHTML = i;
-      clearInterval(intervalId);
+    else if (self.currentScore === self.endScore) {
+      self.finalTime = i;
+      $('#counter-1').html(self.finalTime);
+      clearInterval(self.timer);
     }
-  }
-}, 1000);
+    i++;
+  }, 1000);
 };
-}
 
 
 var newGame = new Game();
 
 newGame.elementShuffle();
 newGame.checkGuess();
+newGame.timer();
 
 var newRound = function() {
   newGame.elementShuffle();

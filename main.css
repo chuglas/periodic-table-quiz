@@ -18,7 +18,13 @@ nav {
   background: #decfa5;
   color: #958c71;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
+
+
 
 .element {
   animation: pulse 5s infinite;
@@ -29,7 +35,7 @@ nav {
     opacity: 1;
   }
   50% {
-    opacity: .7;
+    opacity: .5;
   }
   50% {
     opacity: 1;
@@ -39,7 +45,8 @@ nav {
 .status-bar {
   height: 5%;
   width: 3%;
-  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
   right: 0;
   position: absolute;
   background-color: #FBB040;
@@ -71,18 +78,36 @@ h3 {
 h1 {
   font-family: 'Droid Sans Mono', monospace;
   font-size: 6rem;
-  margin: 10px 0;
+  margin: 10px;
+  color: #585240;
 }
 
-h3 span {
+h4 {
   font-family: 'Droid Sans Mono', monospace;
   font-size: 2rem;
   letter-spacing:4px;
 }
 
+.instructions-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.instructions-wrapper h3 {
+  margin: 0;
+}
+
+.instructions-wrapper h4 {
+  margin: 0 10px;
+}
+
+.main-game-wrapper {
+  position: absolute;
+  bottom: 30px;
+}
+
 .symbol-wrapper {
   width: 90%;
-  height: 50%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -99,6 +124,11 @@ h3 span {
   font-family: 'Droid Sans Mono', monospace;
   font-size: 3rem;
   cursor: pointer;
+  transition: 200ms ease;
+}
+
+.symbol:hover {
+  background-color: #585240;
 }
 
 .circle {
@@ -114,4 +144,23 @@ h3 span {
 
 .st5 {
   transition: 2000ms;
+}
+
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffeebd;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.time-bubble h1 {
+  margin: 0;
+}
+
+.time-bubble h5 {
+  margin: 0;
 }
