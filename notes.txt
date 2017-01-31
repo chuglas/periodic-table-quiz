@@ -17,7 +17,10 @@ Whichever player angers the ruler the fastest wins the game.
 
 
 
-[X, X, X, X, X]
-[X, X, X, X, X]
-[X, X, X, X, X]
-[X, X, X, X, X]
+
+Start Game
+-- Sets a new board.
+
+On click of div
+  - grabs that ID
+  - 

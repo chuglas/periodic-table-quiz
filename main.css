@@ -12,10 +12,39 @@ nav {
   position: fixed;
   height: 100%;
   width: 25%;
-  right: 0;
+  right: 3%;
   top: 0;
   bottom: 0;
   background: #decfa5;
+  color: #958c71;
+  text-align: center;
+}
+
+.element {
+  animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.status-bar {
+  height: 5%;
+  width: 3%;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-color: #FBB040;
+  transition: 5000ms;
+  animation: pulse 2s infinite;
 }
 
 main {
@@ -27,6 +56,12 @@ main {
   left: 0;
   color: #958c71;
   padding: 30px;
+  box-sizing: border-box;
+}
+
+h5 {
+  font-family: 'Droid Sans Mono', monospace;
+  text-transform: uppercase;
 }
 
 h3 {
@@ -46,7 +81,7 @@ h3 span {
 }
 
 .symbol-wrapper {
-  width: 100%;
+  width: 90%;
   height: 50%;
   display: flex;
   flex-wrap: wrap;
@@ -67,11 +102,16 @@ h3 span {
 }
 
 .circle {
-  width: 250px;
-  height: 250px;
-  position: absolute;
+  width: 90%;
   background: #c9bc97;
   border-radius: 50%;
-  top: 25px;
-  left: -125px;
+  margin: 5%;
+}
+
+.st3 {
+  transition: 2000ms;
+}
+
+.st5 {
+  transition: 2000ms;
 }

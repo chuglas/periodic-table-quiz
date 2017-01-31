@@ -218,13 +218,13 @@ var elements = [
     {
       name: "BlahBlahium",
       espName: "",
-      symbol: "Ar",
+      symbol: "Bs",
       id: 37,
     },
     {
       name: "Fakium",
       espName: "",
-      symbol: "Ar",
+      symbol: "Bs",
       id: 38,
     },
 
