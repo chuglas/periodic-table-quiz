@@ -1,9 +1,10 @@
 var Game = function() {
     this.player = '';
-    this.endScore = 10;
+    this.endScore = 9;
     this.currentScore = 0;
     this.maxTime = 1000;
     this.finalTime = 0;
+    this.chosenLanguage = '';
 };
 
 // RANDOMIZE ARRAY of 20 ELEMENTS
@@ -22,19 +23,27 @@ function shuffle(array) {
   return array.slice(0,20);
 }
 
+
 // Chooses One Random Element for the Correct Answer
 Game.prototype.randomElement = function(array) {
   var randomNum = Math.floor(Math.random() * array.length);
   var randomElement = array[randomNum];
-  $('.name-display').html(randomElement.name);
+  if (this.chosenLanguage === 'Esp') {
+    $('.name-display').html(randomElement.espName);
+  }
+  if (this.chosenLanguage === 'Eng') {
+    $('.name-display').html(randomElement.name);
+  }
   $('.name-display').attr("id", randomElement.id);
   return randomElement.id;
 };
+
 
 //Clears Elements From Div Before Next Question
 Game.prototype.clearElements = function() {
   $( ".symbol" ).remove();
 };
+
 
 // Appends the Element Divs onto the DOM
 Game.prototype.elementShuffle = function() {
@@ -50,6 +59,7 @@ Game.prototype.elementShuffle = function() {
   }
 };
 
+// Changes Anger Level
 Game.prototype.angerLevel = function() {
   var face = $('.st3');
   var eyes = $('.st5');
@@ -68,6 +78,7 @@ Game.prototype.angerLevel = function() {
   }
 };
 
+
 //Checks The Guess & Starts & Pushes A New Question
 Game.prototype.checkGuess = function() {
   var self = this;
@@ -78,6 +89,12 @@ Game.prototype.checkGuess = function() {
       self.currentScore = self.currentScore + 1;
       self.angerLevel();
       self.newRound();
+      if (this.innerHTML === 'Bs') {
+        $('.bullshit-alert').addClass('active');
+      }
+      if (self.currentScore === self.endScore) {
+        clearInterval(self.timer);
+      }
     }
     else {
       self.currentScore = self.currentScore - 1;
@@ -90,21 +107,25 @@ Game.prototype.checkGuess = function() {
   });
 };
 
+
+// var scoreArray = [];
+
 //Records The Time & The Finished Time
 Game.prototype.timer = function() {
   var self = this;
-  var i = 0;
+  var count = 0;
   setInterval(function() {
-    if (self.currentScore <= self.endScore) {
-      $('#counter-1').html(i);
+    if (self.currentScore < self.endScore) {
+      $('#counter-1').html(count);
     }
-    else if (self.currentScore === self.endScore) {
-      self.finalTime = i;
-      $('#counter-1').html(self.finalTime);
-      clearInterval(self.timer);
-      return(self.finalTime);
+    if (self.currentScore === self.endScore) {
+      $('#counter-1').html(count);
+      self.finalTime = count;
+      console.log(self.finalTime + " pleaseeeee");
+      // clearInterval(self.timer);
+      // return self.finalTime;
     }
-    i++;
+    count++;
   }, 1000);
 };
 
@@ -119,12 +140,39 @@ Game.prototype.newRound = function() {
 // var newGame = new Game();
 // var newGame2 = new Game();
 
+// LANGUAGE SELECT
+Game.prototype.languageSelect = function() {
+  var self = this;
+  $('#language-modal').addClass('language-modal-active');
+  $('#modal-mask').addClass('modal-mask-active');
+  $('#spanish-select').click(function(){
+    $('#language-modal').removeClass('language-modal-active'); $('#modal-mask').removeClass('modal-mask-active');
+    self.chosenLanguage = 'Esp';
+    self.startFirstRound();
+    // console.log(self.chosenLanguage + " should be Esp");
+    return "Esp";
+  });
+  $('#english-select').click(function(){
+    $('#language-modal').removeClass('language-modal-active'); $('#modal-mask').removeClass('modal-mask-active');
+    self.chosenLanguage = 'Eng';
+    self.startFirstRound();
+    // console.log(self.chosenLanguage + " should be Eng");
+
+    return "Eng";
+  });
+};
+
+// SHUFFLE, START TIMER, CHECK FIRST GUESS,
+Game.prototype.startFirstRound = function() {
+  this.elementShuffle();
+  this.timer();
+  this.checkGuess();
+};
+
 
 $('#player-one-start').click(function(){
   var newGame = new Game();
-  newGame.elementShuffle();
-  newGame.checkGuess();
-  newGame.timer();
+  newGame.languageSelect();
   $('#player-one-start').remove();
 });
 

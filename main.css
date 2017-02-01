@@ -35,7 +35,7 @@ nav {
   50% {
     opacity: .5;
   }
-  50% {
+  100% {
     opacity: 1;
   }
 }
@@ -74,15 +74,6 @@ main {
   box-sizing: border-box;
 }
 
-h5 {
-  font-family: 'Droid Sans Mono', monospace;
-  text-transform: uppercase;
-}
-
-h3 {
-  font-family: 'Lora', sans-serif;
-}
-
 h1 {
   font-family: 'Droid Sans Mono', monospace;
   font-size: 6rem;
@@ -90,10 +81,25 @@ h1 {
   color: #585240;
 }
 
+h2 {
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 3rem;
+}
+
+h3 {
+  font-family: 'Lora', sans-serif;
+  font-size: 2rem;
+}
+
 h4 {
   font-family: 'Droid Sans Mono', monospace;
   font-size: 2rem;
   letter-spacing:4px;
+}
+
+h5 {
+  font-family: 'Droid Sans Mono', monospace;
+  text-transform: uppercase;
 }
 
 .instructions-wrapper {
@@ -111,7 +117,8 @@ h4 {
 
 .main-game-wrapper {
   position: absolute;
-  bottom: 30px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .symbol-wrapper {
@@ -198,5 +205,112 @@ h4 {
 }
 
 .start-game-button:hover {
+  transform: rotate(15deg);
+}
+
+@keyframes flash {
+  0% {
+    top: -150%;
+  }
+  25% {
+    top: 50%;
+  }
+  75% {
+    top: 50%;
+  }
+  100% {
+    top: 150%;
+  }
+}
+
+.bullshit-alert {
+  background: red;
+  color: white;
+  position: absolute;
+  width: 90%;
+  top: -150%;
+  left: 5%;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.bullshit-alert.active {
+  animation: flash 1500ms;
+}
+
+.thermometer-bulb {
+  width: 80px;
+  height: 80px;
+  background: red;
+  border-radius: 50%;
+}
+
+.thermometer-stick {
+  width: 60px;
+  height: 360px;
+  background: red;
+  border-radius: 30px;
+}
+
+.modal-mask {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #585240;
+  opacity: .7;
+  z-index: 0;
+}
+
+.modal-mask.modal-mask-active {
+  display: block;
+}
+
+.language-modal {
+  height: 50%;
+  width: 50%;
+  background: #ffeebd;
+  color: #585240;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: none;
+  transition: 300ms;
+  z-index: 1;
+  flex-wrap: wrap;
+  padding: 10%;
+  justify-content: center;
+  text-align: center;
+}
+
+.language-modal.language-modal-active {
+  display: flex;
+}
+
+.row {
+  width: 100%;
+}
+
+.btn--language {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background: #585240;
+  color: #ffeebd;
+  font-size: 1.5rem;
+  font-family: 'Droid Sans Mono', monospace;
+  border: none;
+  outline: none;
+  transition: 200ms ease;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.btn--language:hover {
   transform: rotate(15deg);
 }
