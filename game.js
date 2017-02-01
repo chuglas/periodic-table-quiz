@@ -1,3 +1,6 @@
+var playerOneScore = 0;
+var playerTwoScore = 0;
+
 var Game = function() {
     this.player = '';
     this.endScore = 3;
@@ -95,7 +98,6 @@ Game.prototype.checkGuess = function() {
       }
       if (self.currentScore === self.endScore) {
         // endPlayer1();
-        self.clearBoard();
       }
     }
     else {
@@ -111,29 +113,32 @@ Game.prototype.checkGuess = function() {
 
 //RECORDS TEH TIME & THE FINISHED TIME
 Game.prototype.timer = function() {
-  if (this.chosenLanguage === 'Esp') {
-    this.currentScore = 3;
-    this.angerLevel();
-  }
+  // THIS IS BREAKING THE COUNTER
+  // if (this.chosenLanguage === 'Esp') {
+  //   this.currentScore = 1;
+  //   this.angerLevel();
+  // }
   var self = this;
   var count = 1;
-  setInterval(function() {
+  var countUp = setInterval(function() {
     if (self.currentScore < self.endScore) {
       switch(self.player) {
         case 'player1': $('#counter-1').html(count); break;
-        case 'player2': $('#counter-2').html(count); break;
+        case 'player2': $('#counter-1').html(playerOneScore); $('#counter-2').html(count); break;
       }
     }
-    if (self.currentScore === self.endScore) {
+    if (self.currentScore >= self.endScore) {
       self.finalTime = count;
       switch(self.player) {
         case 'player1': $('#counter-1').html(self.finalTime);
-                        clearInterval(timer);
-                        // PLAYER 1 RECAP & PLAYER 2 START BUTTON
+                        playerOneScore = self.finalTime;
+                        clearInterval(countUp);
+                        self.playerOneRecap();
                         break;
         case 'player2': $('#counter-2').html(self.finalTime);
-                        clearInterval(timer);
-                        // WINNER SCREEN
+                        playerTwoScore = self.finalTime;
+                        clearInterval(countUp);
+                        self.playerTwoRecap();
                         break;
       }
     }
@@ -141,12 +146,29 @@ Game.prototype.timer = function() {
   }, 1000);
 };
 
+Game.prototype.playerOneRecap = function() {
+  console.log("Player One's Score is " + playerOneScore);
+};
+
+Game.prototype.playerTwoRecap = function() {
+  console.log("Player One's Score is " + playerOneScore);
+  console.log("Player Two's Score is " + playerTwoScore);
+  if (playerOneScore > playerTwoScore) {
+    console.log("Player Two Wins");
+  }
+  else {
+    console.log("Player One Wins!");
+  }
+
+};
+
+
+
 //PULLS UP A NEW QUESTIOn
 Game.prototype.newRound = function() {
   this.angerLevel();
   this.elementShuffle();
   this.checkGuess();
-  console.log("new round started");
   console.log("current score: " + this.currentScore );
 };
 
@@ -158,6 +180,8 @@ Game.prototype.languageSelect = function() {
   $('#spanish-select').click(function(){
     $('#language-modal').removeClass('language-modal-active'); $('#modal-mask').removeClass('modal-mask-active');
     self.chosenLanguage = 'Esp';
+    self.currentScore = 1;
+    self.angerLevel();
     self.startFirstRound();
   });
   $('#english-select').click(function(){
@@ -175,10 +199,6 @@ Game.prototype.startFirstRound = function() {
   this.checkGuess();
 };
 
-//ClEARS THE BOARD FOR THE NEXT ROUND
-Game.prototype.clearBoard = function() {
-
-};
 
 
 $('#player-one-start').click(function(){
@@ -192,6 +212,7 @@ $('#player-two-start').click(function(){
   var newGame2 = new Game();
   newGame2.angerLevel();
   newGame2.player = 'player2';
+  console.log(newGame2.player);
   newGame2.languageSelect();
   $('#player-two-start').remove();
 });
