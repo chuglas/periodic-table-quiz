@@ -28,17 +28,17 @@ nav {
   animation: pulse 5s infinite;
 }
 
-@keyframes pulse {
+/*@keyframes pulse {
   0% {
     opacity: 1;
   }
   50% {
-    opacity: .5;
+    opacity: .7;
   }
   100% {
     opacity: 1;
   }
-}
+}*/
 
 .status-bar-wrapper {
   height: 100%;
@@ -58,7 +58,7 @@ nav {
   left: 0;
   position: absolute;
   background-color: #FBB040;
-  transition: 5000ms;
+  transition: 2000ms;
   animation: pulse 2s infinite;
 }
 
@@ -271,7 +271,6 @@ h5 {
 }
 
 .language-modal {
-  height: 50%;
   width: 50%;
   background: #ffeebd;
   color: #585240;
@@ -283,7 +282,7 @@ h5 {
   transition: 300ms;
   z-index: 1;
   flex-wrap: wrap;
-  padding: 10%;
+  padding: 5%;
   justify-content: center;
   text-align: center;
 }

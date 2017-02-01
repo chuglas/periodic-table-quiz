@@ -1,6 +1,6 @@
 var Game = function() {
     this.player = '';
-    this.endScore = 9;
+    this.endScore = 3;
     this.currentScore = 0;
     this.maxTime = 1000;
     this.finalTime = 0;
@@ -24,7 +24,7 @@ function shuffle(array) {
 }
 
 
-// Chooses One Random Element for the Correct Answer
+// CHOOSES ONE RANDOM ELEMENT FOR THE CORRECT ANSWER
 Game.prototype.randomElement = function(array) {
   var randomNum = Math.floor(Math.random() * array.length);
   var randomElement = array[randomNum];
@@ -39,13 +39,13 @@ Game.prototype.randomElement = function(array) {
 };
 
 
-//Clears Elements From Div Before Next Question
+//CLEARS ELEMENTS FROM THE DIV BEFORE THE NEXT QUESTIO
 Game.prototype.clearElements = function() {
   $( ".symbol" ).remove();
 };
 
 
-// Appends the Element Divs onto the DOM
+// APPENDS THE ELEMENT DIVS INTO THE DOM
 Game.prototype.elementShuffle = function() {
   this.clearElements();
   var sliced = shuffle(elements);
@@ -59,12 +59,14 @@ Game.prototype.elementShuffle = function() {
   }
 };
 
-// Changes Anger Level
+
+// CHANGES ANGER LEVEL
 Game.prototype.angerLevel = function() {
   var face = $('.st3');
   var eyes = $('.st5');
   var status = $('.status-bar');
   switch(this.currentScore) {
+    case 0: face.css("fill", "#fbb040"); status.css("background-color", "#fbb040"); status.css("height", "0%"); break;
     case 1: face.css("fill", "#fbb040"); status.css("background-color", "#fbb040"); status.css("height", "10%"); break;
     case 2: face.css("fill", "#f99d33"); status.css("background-color", "#f99d33"); status.css("height", "20%"); break;
     case 3: face.css("fill", "#f68b28"); status.css("background-color", "#f68b28"); status.css("height", "30%"); break;
@@ -79,7 +81,7 @@ Game.prototype.angerLevel = function() {
 };
 
 
-//Checks The Guess & Starts & Pushes A New Question
+//CHECKS THE GUESS & PULLS UP A NEW QUESTIOn
 Game.prototype.checkGuess = function() {
   var self = this;
   $('.symbol').click(function(){
@@ -87,13 +89,13 @@ Game.prototype.checkGuess = function() {
     var correct = $('.name-display').attr('id');
     if (guess === correct) {
       self.currentScore = self.currentScore + 1;
-      self.angerLevel();
       self.newRound();
       if (this.innerHTML === 'Bs') {
         $('.bullshit-alert').addClass('active');
       }
       if (self.currentScore === self.endScore) {
-        clearInterval(self.timer);
+        // endPlayer1();
+        self.clearBoard();
       }
     }
     else {
@@ -101,84 +103,95 @@ Game.prototype.checkGuess = function() {
       if (self.currentScore < 0) {
         self.currentScore = 0;
       }
-      self.angerLevel();
       self.newRound();
     }
   });
 };
 
 
-// var scoreArray = [];
-
-//Records The Time & The Finished Time
+//RECORDS TEH TIME & THE FINISHED TIME
 Game.prototype.timer = function() {
+  if (this.chosenLanguage === 'Esp') {
+    this.currentScore = 3;
+    this.angerLevel();
+  }
   var self = this;
-  var count = 0;
+  var count = 1;
   setInterval(function() {
     if (self.currentScore < self.endScore) {
-      $('#counter-1').html(count);
+      switch(self.player) {
+        case 'player1': $('#counter-1').html(count); break;
+        case 'player2': $('#counter-2').html(count); break;
+      }
     }
     if (self.currentScore === self.endScore) {
-      $('#counter-1').html(count);
       self.finalTime = count;
-      console.log(self.finalTime + " pleaseeeee");
-      // clearInterval(self.timer);
-      // return self.finalTime;
+      switch(self.player) {
+        case 'player1': $('#counter-1').html(self.finalTime);
+                        clearInterval(timer);
+                        // PLAYER 1 RECAP & PLAYER 2 START BUTTON
+                        break;
+        case 'player2': $('#counter-2').html(self.finalTime);
+                        clearInterval(timer);
+                        // WINNER SCREEN
+                        break;
+      }
     }
     count++;
   }, 1000);
 };
 
-//Pulls Up A New Question
+//PULLS UP A NEW QUESTIOn
 Game.prototype.newRound = function() {
+  this.angerLevel();
   this.elementShuffle();
   this.checkGuess();
   console.log("new round started");
   console.log("current score: " + this.currentScore );
 };
 
-// var newGame = new Game();
-// var newGame2 = new Game();
 
 // LANGUAGE SELECT
 Game.prototype.languageSelect = function() {
   var self = this;
-  $('#language-modal').addClass('language-modal-active');
-  $('#modal-mask').addClass('modal-mask-active');
+  $('#language-modal').addClass('language-modal-active'); $('#modal-mask').addClass('modal-mask-active');
   $('#spanish-select').click(function(){
     $('#language-modal').removeClass('language-modal-active'); $('#modal-mask').removeClass('modal-mask-active');
     self.chosenLanguage = 'Esp';
     self.startFirstRound();
-    // console.log(self.chosenLanguage + " should be Esp");
-    return "Esp";
   });
   $('#english-select').click(function(){
     $('#language-modal').removeClass('language-modal-active'); $('#modal-mask').removeClass('modal-mask-active');
     self.chosenLanguage = 'Eng';
     self.startFirstRound();
-    // console.log(self.chosenLanguage + " should be Eng");
-
-    return "Eng";
   });
 };
 
-// SHUFFLE, START TIMER, CHECK FIRST GUESS,
+
+// STARTS FIRST ROUND -- SHUFFLE, START TIMER, CHECK FIRST GUESS,
 Game.prototype.startFirstRound = function() {
   this.elementShuffle();
   this.timer();
   this.checkGuess();
 };
 
+//ClEARS THE BOARD FOR THE NEXT ROUND
+Game.prototype.clearBoard = function() {
+
+};
+
 
 $('#player-one-start').click(function(){
   var newGame = new Game();
+  newGame.player = 'player1';
   newGame.languageSelect();
   $('#player-one-start').remove();
 });
 
-$('#playerTwoStart').click(function(){
+$('#player-two-start').click(function(){
   var newGame2 = new Game();
-  newGame2.elementShuffle();
-  newGame2.checkGuess();
-  newGame2.timer();
+  newGame2.angerLevel();
+  newGame2.player = 'player2';
+  newGame2.languageSelect();
+  $('#player-two-start').remove();
 });
