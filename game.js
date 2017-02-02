@@ -214,5 +214,5 @@ $('#player-two-start').click(function(){
   newGame2.player = 'player2';
   console.log(newGame2.player);
   newGame2.languageSelect();
-  $('#player-two-start').remove();
+  $('#player-two-mask').remove();
 });

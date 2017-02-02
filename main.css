@@ -8,7 +8,7 @@ body {
 }
 
 
-nav {
+aside {
   position: fixed;
   height: 100%;
   width: 25%;
@@ -92,7 +92,7 @@ nav {
 }
 
 main {
-  position: fixed;
+  position: absolute;
   height: 100%;
   width: 65%;
   top: 0;
@@ -108,8 +108,14 @@ main {
 h1 {
   font-family: 'Droid Sans Mono', monospace;
   font-size: 6rem;
-  margin: 10px;
+  margin: 0;
   color: #585240;
+}
+
+h1.text--big {
+  font-family: 'Lora', monospace;
+  font-size: 10vw;
+  margin: 0;
 }
 
 h2 {
@@ -267,6 +273,7 @@ p {
   color: white;
   position: absolute;
   width: 90%;
+  border-radius: 50%;
   top: -150%;
   left: 5%;
   text-align: center;
@@ -370,4 +377,34 @@ modal {
 
 .btn--language:hover {
   transform: rotate(15deg);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.svg-wrapper--atom {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.atom-svg {
+  position: absolute;
+  width: 200px;
+  opacity: .5;
+  z-index: 1;
+  animation: rotate 5s linear infinite;
+}
+
+.instructions-text {
+  z-index: 2;
 }
