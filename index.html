@@ -70,7 +70,7 @@
         <h5>Player 2</h5>
         <h1 id="counter-2">0</h1>
         <h5>Seconds</h5>
-        <button class="start-game-button" id="player-two-start">Second Player Start</button>
+        <button class="start-game-button" id="player-two-start">Second Player</button>
       </div>
     </div>
 
@@ -78,9 +78,17 @@
 
   </nav>
   <div class="status-bar-wrapper">
-    <div class="status-bar"></div>
+    <div class="height--5">
+      <h5>MAX ANGER</h5>
+    </div>
+    <div class="height--90">
+      <div class="status-bar"></div>
+    </div>
     <!--<div class="thermometer-bulb"></div>
     <div class="thermometer-stick"></div>-->
+    <div class="height--5">
+      <h5>ANGER LEVEL</h5>
+    </div>
   </div>
 
   <main>
@@ -94,23 +102,32 @@
     </div>
   </main>
 
-
-  <div id="language-modal" class="modal">
-    <div class="row"><h2>CHOOSE YOUR LANGUAGE</h2></div>
-    <div class="row"><h3>Remember the evil ruler hates Spanish. Play in Spanish to make him angry before you even start playing!</h3></div>
-    <div class="row">
-      <button id="spanish-select" class="btn--language">ESPAÑOL</button>
-      <button id="english-select" class="btn--language">ENGLISH</button>
+  <modal id="modal--language">
+    <div class="modal">
+      <div class="row"><h2>CHOOSE YOUR LANGUAGE</h2></div>
+      <div class="row"><h3>Remember the evil ruler hates Spanish. Play in Spanish to make him angry before you even start playing!</h3></div>
+      <div class="row">
+        <button id="spanish-select" class="btn--language">ESPAÑOL</button>
+        <button id="english-select" class="btn--language">ENGLISH</button>
+      </div>
     </div>
-  </div>
+  </modal>
 
-<div id="player-one-over-modal" class="modal">
-  <h1>Mad Face SVG</h1>
-  <h2>Nice job, Player 1. You angered the ruler in <span id="player-one-recap-score"></span>seconds.</h2>
+  <modal id="modal--player-one-done">
+    <div class="modal">
+      <h1>Mad Face SVG</h1>
+      <h2>Nice job, Player 1. You angered the ruler in <span id="player-one-recap-score"></span> seconds.</h2>
+      <button class="btn-close btn--language">Close</button>
+    </div>
+  </modal>
 
-</div>
-
-  <div class="modal-mask" id="modal-mask"></div>
+  <modal id="modal--game-over">
+    <div class="modal">
+      <h1>Animated SVG</h1>
+      <h2><span id="winner-name"></span></h2>
+      <button id="btn-refresh" class="btn-play-again btn--language">Play Again</button>
+    </div>
+  </modal>
 
 
   </body>

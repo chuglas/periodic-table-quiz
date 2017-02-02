@@ -3,6 +3,8 @@
 TO DO ~ ~ ~ ~ ~
 
 ~ Only One "Bs" Element At A Time // Always Spit a Bs Element To The Grid
+~ Alternative Fact to "Hecho Alternativo" en esp.
+~ Welcome page w atom svg.
 ~ 
 
 

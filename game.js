@@ -133,6 +133,7 @@ Game.prototype.timer = function() {
         case 'player1': $('#counter-1').html(self.finalTime);
                         playerOneScore = self.finalTime;
                         clearInterval(countUp);
+                        self.player = '';
                         self.playerOneRecap();
                         break;
         case 'player2': $('#counter-2').html(self.finalTime);
@@ -148,17 +149,29 @@ Game.prototype.timer = function() {
 
 Game.prototype.playerOneRecap = function() {
   console.log("Player One's Score is " + playerOneScore);
+  $('#modal--player-one-done').addClass('active');
+  $('.btn-close').click(function(){
+    $('#modal--player-one-done').removeClass('active');
+    console.log("this working?");
+  });
 };
 
 Game.prototype.playerTwoRecap = function() {
   console.log("Player One's Score is " + playerOneScore);
   console.log("Player Two's Score is " + playerTwoScore);
+
   if (playerOneScore > playerTwoScore) {
-    console.log("Player Two Wins");
+    $('#winner-name').html("Player Two Wins");
   }
   else {
-    console.log("Player One Wins!");
+    $('#winner-name').html("Player one Wins");
   }
+  $('#modal--game-over').addClass('active');
+
+  $('#btn-refresh').click(function(){
+    location.reload();
+  });
+
 
 };
 
@@ -176,16 +189,16 @@ Game.prototype.newRound = function() {
 // LANGUAGE SELECT
 Game.prototype.languageSelect = function() {
   var self = this;
-  $('#language-modal').addClass('language-modal-active'); $('#modal-mask').addClass('modal-mask-active');
+  $('#modal--language').addClass('active');
   $('#spanish-select').click(function(){
-    $('#language-modal').removeClass('language-modal-active'); $('#modal-mask').removeClass('modal-mask-active');
+    $('#modal--language').removeClass('active');
     self.chosenLanguage = 'Esp';
     self.currentScore = 1;
     self.angerLevel();
     self.startFirstRound();
   });
   $('#english-select').click(function(){
-    $('#language-modal').removeClass('language-modal-active'); $('#modal-mask').removeClass('modal-mask-active');
+    $('#modal--language').removeClass('active');
     self.chosenLanguage = 'Eng';
     self.startFirstRound();
   });
