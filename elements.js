@@ -215,17 +215,19 @@ var elements = [
       symbol: "Kr",
       id: 36,
     },
-    {
-      name: "BlahBlahium",
-      espName: "Falsónio",
-      symbol: "Bs",
-      id: 37,
-    },
-    {
-      name: "Fakium",
-      espName: "Mentiráneo",
-      symbol: "Bs",
-      id: 38,
-    },
-
 ];
+
+var fakeElements = [
+	{
+		name: "BlahBlahium",
+		espName: "Falsónio",
+		symbol: "Bs",
+		id: 37,
+	},
+	{
+		name: "Fakium",
+		espName: "Mentiráneo",
+		symbol: "Bs",
+		id: 38,
+	},
+]

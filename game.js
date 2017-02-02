@@ -67,7 +67,7 @@ Game.prototype.angerLevel = function() {
   var eyes = $('.st5');
   var status = $('.status-bar');
   switch(this.currentScore) {
-    case 0: face.css("fill", "#fbb040"); status.css("background-color", "#fbb040"); status.css("height", "0%"); break;
+    case 0: face.css("fill", "#fbb040"); status.css("background-color", "#fbb040"); status.css("height", "0%"); eyes.css("fill", "#58595B"); break;
     case 1: face.css("fill", "#fbb040"); status.css("background-color", "#fbb040"); status.css("height", "10%"); break;
     case 2: face.css("fill", "#f99d33"); status.css("background-color", "#f99d33"); status.css("height", "20%"); break;
     case 3: face.css("fill", "#f68b28"); status.css("background-color", "#f68b28"); status.css("height", "30%"); break;
@@ -93,9 +93,6 @@ Game.prototype.checkGuess = function() {
       self.newRound();
       if (this.innerHTML === 'Bs') {
         $('.bullshit-alert').addClass('active');
-      }
-      if (self.currentScore === self.endScore) {
-        // endPlayer1();
       }
     }
     else {
@@ -143,6 +140,7 @@ Game.prototype.timer = function() {
 Game.prototype.playerOneRecap = function() {
   console.log("Player One's Score is " + playerOneScore);
   $('#modal--player-one-done').addClass('active');
+  $('#player-one-recap-score').html(playerOneScore);
   $('.btn-close').click(function(){
     $('#modal--player-one-done').removeClass('active');
   });
@@ -153,7 +151,7 @@ Game.prototype.playerTwoRecap = function() {
     $('#winner-name').html("Player Two Wins");
   }
   else {
-    $('#winner-name').html("Player one Wins");
+    $('#winner-name').html("Player One Wins");
   }
   $('#modal--game-over').addClass('active');
   $('#btn-refresh').click(function(){

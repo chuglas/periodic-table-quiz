@@ -1,6 +1,6 @@
 /*font-family: 'Droid Sans Mono', monospace;
 font-family: 'Patua One', cursive;
-font-family: 'Lora', serif;*/
+font-family: 'Lora'', serif;*/
 
 body {
   background: #ffeebd;
@@ -110,11 +110,13 @@ h1 {
   font-size: 6rem;
   margin: 0;
   color: #585240;
+  margin: 10px 0;
 }
 
 h1.text--big {
   font-family: 'Lora', monospace;
-  font-size: 10vw;
+  font-size: 8vw;
+  line-height: 1;
   margin: 0;
 }
 
@@ -131,7 +133,8 @@ h3 {
 h4 {
   font-family: 'Droid Sans Mono', monospace;
   font-size: 2rem;
-  letter-spacing:4px;
+  letter-spacing: 4px;
+  margin: 20px 0;
 }
 
 h5 {
@@ -142,7 +145,7 @@ h5 {
 
 p {
   font-family: 'Lora', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 1.8;
 }
 
@@ -272,12 +275,22 @@ p {
   background: red;
   color: white;
   position: absolute;
-  width: 90%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   top: -150%;
-  left: 5%;
   text-align: center;
   transform: translateY(-50%);
+}
+
+.bullshit-alert h5 {
+  font-family: 'Droid Sans Mono', monospace;
+  text-transform: uppercase;
+  color: white;
+  font-size: 1.5rem
 }
 
 .bullshit-alert.active {
@@ -406,5 +419,7 @@ modal {
 }
 
 .instructions-text {
+  max-width: 800px;
+  width: 80%;
   z-index: 2;
 }
