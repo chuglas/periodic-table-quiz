@@ -58,6 +58,17 @@ nav {
   height: 90%;
   width: 100%;
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  -ms-align-items: space-between;
+  align-items: space-between;
+}
+
+.notch {
+  width: 80%;
+  margin: 0 auto;
+  height: 1px;
+  background: #585240;
 }
 
 .height--5 {
@@ -90,6 +101,8 @@ main {
   color: #958c71;
   padding: 30px;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
 h1 {
@@ -121,23 +134,14 @@ h5 {
   color: #585240;
 }
 
-.instructions-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.instructions-wrapper h3 {
-  margin: 0;
-}
-
-.instructions-wrapper h4 {
-  margin: 0 10px;
+p {
+  font-family: 'Lora', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.8;
 }
 
 .main-game-wrapper {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+
 }
 
 .symbol-wrapper {
@@ -159,6 +163,18 @@ h5 {
   font-size: 3rem;
   cursor: pointer;
   transition: 200ms ease;
+}
+
+.bs {
+  height: 50px;
+  width: 50px;
+  background-color: #958c71;
+  margin: 5px;
+  padding: 5px 8px;
+  color: #ffeebd;
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .symbol:hover {

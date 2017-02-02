@@ -3,7 +3,7 @@ var playerTwoScore = 0;
 
 var Game = function() {
     this.player = '';
-    this.endScore = 3;
+    this.endScore = 10;
     this.currentScore = 0;
     this.maxTime = 1000;
     this.finalTime = 0;
@@ -31,11 +31,9 @@ function shuffle(array) {
 Game.prototype.randomElement = function(array) {
   var randomNum = Math.floor(Math.random() * array.length);
   var randomElement = array[randomNum];
-  if (this.chosenLanguage === 'Esp') {
-    $('.name-display').html(randomElement.espName);
-  }
-  if (this.chosenLanguage === 'Eng') {
-    $('.name-display').html(randomElement.name);
+  switch (this.chosenLanguage) {
+    case 'Esp': $('.name-display').html(randomElement.espName); break;
+    case 'Eng': $('.name-display').html(randomElement.name); break;
   }
   $('.name-display').attr("id", randomElement.id);
   return randomElement.id;
@@ -113,11 +111,6 @@ Game.prototype.checkGuess = function() {
 
 //RECORDS TEH TIME & THE FINISHED TIME
 Game.prototype.timer = function() {
-  // THIS IS BREAKING THE COUNTER
-  // if (this.chosenLanguage === 'Esp') {
-  //   this.currentScore = 1;
-  //   this.angerLevel();
-  // }
   var self = this;
   var count = 1;
   var countUp = setInterval(function() {
@@ -152,14 +145,10 @@ Game.prototype.playerOneRecap = function() {
   $('#modal--player-one-done').addClass('active');
   $('.btn-close').click(function(){
     $('#modal--player-one-done').removeClass('active');
-    console.log("this working?");
   });
 };
 
 Game.prototype.playerTwoRecap = function() {
-  console.log("Player One's Score is " + playerOneScore);
-  console.log("Player Two's Score is " + playerTwoScore);
-
   if (playerOneScore > playerTwoScore) {
     $('#winner-name').html("Player Two Wins");
   }
@@ -167,14 +156,10 @@ Game.prototype.playerTwoRecap = function() {
     $('#winner-name').html("Player one Wins");
   }
   $('#modal--game-over').addClass('active');
-
   $('#btn-refresh').click(function(){
     location.reload();
   });
-
-
 };
-
 
 
 //PULLS UP A NEW QUESTIOn
@@ -193,7 +178,7 @@ Game.prototype.languageSelect = function() {
   $('#spanish-select').click(function(){
     $('#modal--language').removeClass('active');
     self.chosenLanguage = 'Esp';
-    self.currentScore = 1;
+    self.currentScore = 3;
     self.angerLevel();
     self.startFirstRound();
   });
@@ -213,8 +198,10 @@ Game.prototype.startFirstRound = function() {
 };
 
 
+// CLICK EVENTS TO CREATE NEW GAMES ~ ~ ~ ~ ~ ~ ~ ~
 
 $('#player-one-start').click(function(){
+  $('.instructions-wrapper').remove();
   var newGame = new Game();
   newGame.player = 'player1';
   newGame.languageSelect();
