@@ -27,21 +27,7 @@ function shuffle(array) {
 }
 
 
-//SHUFFLES THE FAKE ELEMENT ARRAY & PUTS IT INTO ONE ELEMENT
-function shuffleFake(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array.slice(0,1);
-}
+
 
 
 // CHOOSES ONE RANDOM ELEMENT FOR THE CORRECT ANSWER
@@ -70,8 +56,6 @@ Game.prototype.elementShuffle = function() {
   var fakeSliced = shuffle(fakeElements);
   sliced.push(fakeSliced[0]);
   shuffle(sliced);
-  console.log("halloo");
-  console.log(sliced);
   this.randomElement(sliced);
   for (var i = 0; i < sliced.length; i++) {
     var div = $("<div></div>");
@@ -106,6 +90,8 @@ Game.prototype.angerLevel = function() {
 
 //CHECKS THE GUESS & PULLS UP A NEW QUESTIOn
 Game.prototype.checkGuess = function() {
+  $('.bullshit-alert').remove();
+  $('aside').append('<div class="bullshit-alert"><h5>ALTERNATIVE FACT!</h5></div>');
   var self = this;
   $('.symbol').click(function(){
     var guess = this.id;
@@ -182,7 +168,7 @@ Game.prototype.playerTwoRecap = function() {
 };
 
 
-//PULLS UP A NEW QUESTIOn
+//PULLS UP A NEW QUESTIO
 Game.prototype.newRound = function() {
   this.angerLevel();
   this.elementShuffle();
