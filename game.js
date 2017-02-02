@@ -23,7 +23,24 @@ function shuffle(array) {
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-  return array.slice(0,20);
+  return array.slice(0,19);
+}
+
+
+//SHUFFLES THE FAKE ELEMENT ARRAY & PUTS IT INTO ONE ELEMENT
+function shuffleFake(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array.slice(0,1);
 }
 
 
@@ -50,6 +67,11 @@ Game.prototype.clearElements = function() {
 Game.prototype.elementShuffle = function() {
   this.clearElements();
   var sliced = shuffle(elements);
+  var fakeSliced = shuffle(fakeElements);
+  sliced.push(fakeSliced[0]);
+  shuffle(sliced);
+  console.log("halloo");
+  console.log(sliced);
   this.randomElement(sliced);
   for (var i = 0; i < sliced.length; i++) {
     var div = $("<div></div>");

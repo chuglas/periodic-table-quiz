@@ -405,13 +405,10 @@ modal {
 }
 
 .svg-wrapper--atom {
-  position: absolute;
-  top: 0;
-  right: 0;
+
 }
 
 .atom-svg {
-  position: absolute;
   width: 200px;
   opacity: .5;
   z-index: 1;
