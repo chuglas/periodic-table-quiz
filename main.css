@@ -14,7 +14,6 @@ main {
   padding: 30px;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
 }
 
 h1 {
@@ -77,12 +76,12 @@ aside {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 }
 
 .aside-wrapper {
   height: 85%;
   width: 100%;
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -271,60 +270,25 @@ aside {
 
 /* SVG STYLING ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*/
 
-@keyframes eyes {
-  0% {
-    fill: red;
-  }
-  50% {
-    fill: #58595B;
-  }
-  100% {
-    fill: red;
-  }
-}
+@keyframes eyes { 0% { fill: red;} 50% {fill: #58595B;}1 00% {fill: red;} }
+@-webkit-keyframes eyes { 0% { fill: red;} 50% {fill: #58595B;}1 00% {fill: red;} }
+@-moz-keyframes eyes { 0% { fill: red;} 50% {fill: #58595B;}1 00% {fill: red;} }
 
-@keyframes flash {
-  0% {
-    top: -150%;
-  }
-  25% {
-    top: 50%;
-  }
-  75% {
-    top: 50%;
-  }
-  100% {
-    top: 150%;
-  }
-}
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(359deg);
-  }
-}
+@keyframes flash { 0% {top: -150%;} 25% {top: 50%;} 75% {top: 50%;} 100% { top: 150%;} }
+@-webkit-keyframes flash { 0% {top: -150%;} 25% {top: 50%;} 75% {top: 50%;} 100% { top: 150%;} }
+@-moz-keyframes flash { 0% {top: -150%;} 25% {top: 50%;} 75% {top: 50%;} 100% { top: 150%;} }
 
-@keyframes rotatecc {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(-180deg);
-  }
-  100% {
-    transform: rotate(-359deg);
-  }
-}
+@keyframes rotate { 0% {transform: rotate(0deg);} 50% {transform: rotate(180deg);}100% {transform: rotate(359deg);} }
+@-webkit-keyframes { 0% {transform: rotate(0deg);} 50% {transform: rotate(180deg);}100% {transform: rotate(359deg);} }
+@-moz-keyframes { 0% {transform: rotate(0deg);} 50% {transform: rotate(180deg);}100% {transform: rotate(359deg);} }
+
+@keyframes rotatecc { 0% { transform: rotate(0deg);} 50% {transform: rotate(-180deg);} 100% {transform: rotate(-359deg);} }
+@-webkit-keyframes { 0% { transform: rotate(0deg);} 50% {transform: rotate(-180deg);} 100% {transform: rotate(-359deg);} }
+@-moz-keyframes { 0% { transform: rotate(0deg);} 50% {transform: rotate(-180deg);} 100% {transform: rotate(-359deg);} }
 
 .circle {
   width: 90%;
-  max-width: 250px;
   background: #c9bc97;
   border-radius: 50%;
   margin: 5%;

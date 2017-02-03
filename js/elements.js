@@ -272,7 +272,7 @@ var elements = [
 		{
 			name: "Tin",
 			espName: "Estaño",
-			symbol: "Sd",
+			symbol: "Sn",
 			id: 50,
 		},
 		{
