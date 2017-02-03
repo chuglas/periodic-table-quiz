@@ -66,8 +66,7 @@ p {
 
 aside {
   position: fixed;
-  height: calc(100% - 80px);
-  padding: 40px 0;
+  height: 100%;
   width: 25%;
   right: 0;
   top: 0;
@@ -75,6 +74,15 @@ aside {
   background: #decfa5;
   color: #958c71;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.aside-wrapper {
+  height: 85%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
