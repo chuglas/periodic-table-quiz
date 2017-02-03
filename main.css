@@ -10,7 +10,8 @@ body {
 
 aside {
   position: fixed;
-  height: 100%;
+  height: calc(100% - 80px);
+  padding: 40px 0;
   width: 25%;
   right: 0;
   top: 0;
@@ -135,7 +136,7 @@ h4 {
   font-family: 'Droid Sans Mono', monospace;
   font-size: 2rem;
   letter-spacing: 4px;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 h5 {
@@ -146,7 +147,7 @@ h5 {
 
 p {
   font-family: 'Lora', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.8;
 }
 
@@ -198,9 +199,14 @@ p {
   margin: 5%;
 }
 
+.svg-wrapper--final-modal {
+  display: flex;
+  align-items: center;
+}
+
 .circle-svg-wrapper {
   width: 50%;
-  margin: 0 auto;
+  margin: 0 50px;
 }
 
 .st3 {
@@ -216,7 +222,7 @@ p {
     fill: red;
   }
   50% {
-    fill: black;
+    fill: #58595B;
   }
   100% {
     fill: red;
@@ -230,8 +236,6 @@ p {
 .eye2 {
   animation: eyes 2s infinite;
 }
-
-
 
 .timer-wrapper {
   display: flex;
@@ -350,7 +354,6 @@ modal {
   left: 0;
   background: rgba(88,82,64,0.7);
   z-index: 0;
-  -ms-align-items: center;
   align-items: center;
   justify-content: center;
 }
@@ -383,7 +386,7 @@ modal {
   padding: 5%;
   justify-content: center;
   text-align: center;
-  max-height: 80vh;
+  max-height: 80%;
   overflow: scroll;
 }
 
@@ -434,6 +437,18 @@ modal {
   }
 }
 
+@keyframes rotatecc {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(-359deg);
+  }
+}
+
 .svg-wrapper--atom {
 
 }
@@ -443,6 +458,20 @@ modal {
   opacity: .5;
   z-index: 1;
   animation: rotate 5s linear infinite;
+}
+
+.atom-svg--small {
+  width: 150px;
+  opacity: .5;
+  z-index: 1;
+  animation: rotate 5s linear infinite;
+}
+
+.atom-svg--small-cc {
+  width: 150px;
+  opacity: .5;
+  z-index: 1;
+  animation: rotatecc 5s linear infinite;
 }
 
 .instructions-text {

@@ -3,7 +3,7 @@ var playerTwoScore = 0;
 
 var Game = function() {
     this.player = '';
-    this.endScore = 1;
+    this.endScore = 10;
     this.currentScore = 0;
     this.maxTime = 1000;
     this.finalTime = 0;

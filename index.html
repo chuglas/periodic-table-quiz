@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Science Game</title>
+    <title>Atomic Clock</title>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lora:700|Patua+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Martel:900|Share+Tech+Mono" rel="stylesheet">>
     <link rel="stylesheet" href="main.css">
@@ -97,10 +97,11 @@
     <div class="instructions-wrapper">
       <div class="instructions-text">
       <h1 class="text--big">Atomic Clock!</h1>
-        <h4>THE ILL-INFORMED AND UNJUST RULER DOESN'T BELIEVE IN SCIENCE.</h4>
-        <p>To anger the him, use your science knowledge! For each element in the periodic table that's displayed on the screen, click on the matching symbol until he reaches the maximum anger level.</p>
-        <p>To throw you off, the unjust ruler has thrown "alternative fact" elements into the mix. Clear them off your board with the <span class="bs">Bs</span> symbol.</p>
-        <p>The player that fully angers the unjust leader in the fastest amount of time wins!</p>
+        <h4>THE IGNORANT OVERLORD DOESN'T BELIEVE IN SCIENCE.</h4>
+        <p>To anger him, use your science knowledge! For each element in the periodic table that's displayed on the screen, click on the matching element symbol.</p>
+        <p>Correct answers increase his anger level, while incorrect answers decrease his anger.</p>
+        <p>To throw you off, the ignorant overlord has thrown "alternative fact" elements into the mix. Clear them off your board by hitting the <span class="bs">Bs</span> symbol.</p>
+        <p>The player that fully angers the ignorant overlord in the fastest amount of time wins!</p>
       </div>
     </div>
     <div class="main-game-wrapper">
@@ -114,10 +115,10 @@
   <modal id="modal--language">
     <div class="modal">
       <div class="row"><h2>CHOOSE YOUR LANGUAGE</h2></div>
-      <div class="row"><h3>Remember the evil ruler hates Spanish. Play in Spanish to make him angry before you even start playing!</h3></div>
+      <div class="row"><h3>Recuerdate que al líder ignorante no le gusta el idoma español. Juega en español para enojarle antes de empezar!</h3></div>
       <div class="row">
-        <button id="spanish-select" class="btn--language">ESPAÑOL</button>
-        <button id="english-select" class="btn--language">ENGLISH</button>
+        <button id="spanish-select" class="btn--language">Español</button>
+        <button id="english-select" class="btn--language">English</button>
       </div>
     </div>
   </modal>
@@ -136,7 +137,11 @@
   <!-- GAME OVER MODAL ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
   <modal id="modal--game-over">
     <div class="modal">
-      <div class="circle-svg-wrapper">
+      <div class="svg-wrapper--final-modal">
+        <div class="svg-wrapper--atom">
+          <img class="atom-svg--small" src="atom.svg" />
+        </div>
+        <div class="circle-svg-wrapper">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
            viewBox="0 0 97.75 97.75" style="enable-background:new 0 0 97.75 97.75;" xml:space="preserve">
         <style type="text/css">
@@ -176,6 +181,10 @@
         <path class="st2" d="M57.23,45.45l8.19-3.08c0.89-0.33,1.34-1.33,1.01-2.22v0c-0.33-0.89-1.33-1.34-2.22-1.01l-8.19,3.08
           c-0.89,0.33-1.34,1.33-1.01,2.22v0C55.34,45.33,56.34,45.78,57.23,45.45z"/>
         </svg>
+      </div>
+        <div class="svg-wrapper--atom">
+          <img class="atom-svg--small-cc" src="atom.svg" />
+        </div>
       </div>
       <h2><span id="winner-name"></span></h2>
       <h4>But we all win when we use real facts and science!</h4>
