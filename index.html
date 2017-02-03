@@ -3,19 +3,36 @@
   <head>
     <meta charset="utf-8">
     <title>Atomic Clock</title>
-    <link rel="shortcut icon" type="image/png" href="atom-favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="img/atom-favicon.png"/>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lora:700|Patua+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Martel:900|Share+Tech+Mono" rel="stylesheet">>
     <link rel="stylesheet" href="main.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-    <script src="elements.js" async></script>
-    <script src="application.js" async></script>
-    <script src="game.js" async></script>
+    <script src="js/elements.js" async></script>
+    <script src="js/application.js" async></script>
+    <script src="js/game.js" async></script>
   </head>
 
   <body>
-
+    <main>
+      <!-- INTRO INSTRUCTIONS ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+      <div class="instructions-wrapper">
+        <div class="instructions-text">
+        <h1 class="text--big">Atomic Clock!</h1>
+          <h4>THE IGNORANT OVERLORD DOESN'T BELIEVE IN SCIENCE.</h4>
+          <p>To anger him, use your science knowledge! For each element in the periodic table that's displayed on the screen, click on the matching element symbol.</p>
+          <p>Correct answers increase his anger level, while incorrect answers decrease his anger.</p>
+          <p>To throw you off, the ignorant overlord has thrown "alternative fact" elements into the mix. Clear them off your board by hitting the <span class="bs">Bs</span> symbol.</p>
+          <p>The player that fully angers the ignorant overlord in the fastest amount of time wins!</p>
+        </div>
+      </div>
+      <!-- MAIN GAME BOARD ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+      <div class="main-game-wrapper">
+        <h1 class="name-display"></h1>
+        <div class="symbol-wrapper" id="symbol-container"></div>
+      </div>
+    </main>
   <!-- RIGHT SIDE MENU ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
     <aside>
       <div class="timer-wrapper">
@@ -74,12 +91,11 @@
           <button class="start-game-button" id="player-two-mask" disabled>Second Player</button>
         </div>
       </div>
-
       <!-- B.S. ELEMENT ALERT ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
       <div class="bullshit-alert"><h5>ALTERNATIVE FACT!</h5></div>
-
     </aside>
 
+    <!-- STATUS BAR ON LEFT ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
     <div class="status-bar-wrapper">
       <div class="height--5">
         <h5>MAX ANGER</h5>
@@ -92,31 +108,11 @@
       </div>
     </div>
 
-  <main>
-
-    <!-- INTRO INSTRUCTIONS ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
-    <div class="instructions-wrapper">
-      <div class="instructions-text">
-      <h1 class="text--big">Atomic Clock!</h1>
-        <h4>THE IGNORANT OVERLORD DOESN'T BELIEVE IN SCIENCE.</h4>
-        <p>To anger him, use your science knowledge! For each element in the periodic table that's displayed on the screen, click on the matching element symbol.</p>
-        <p>Correct answers increase his anger level, while incorrect answers decrease his anger.</p>
-        <p>To throw you off, the ignorant overlord has thrown "alternative fact" elements into the mix. Clear them off your board by hitting the <span class="bs">Bs</span> symbol.</p>
-        <p>The player that fully angers the ignorant overlord in the fastest amount of time wins!</p>
-      </div>
-    </div>
-    <div class="main-game-wrapper">
-      <h1 class="name-display"></h1>
-      <div class="symbol-wrapper" id="symbol-container">
-    </div>
-    </div>
-  </main>
-
   <!-- CHOOSE LANGUAGE MODAL ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
   <modal id="modal--language">
     <div class="modal">
       <div class="row"><h2>CHOOSE YOUR LANGUAGE</h2></div>
-      <div class="row"><h3>Recuerdate que al líder ignorante no le gusta el idoma español. Juega en español para enojarle antes de empezar!</h3></div>
+      <div class="row"><h3>Recuerdate que al líder ignorante no le gusta el español. Juega en español para enfadarle antes de empezar!</h3></div>
       <div class="row">
         <button id="spanish-select" class="btn--language">Español</button>
         <button id="english-select" class="btn--language">English</button>
@@ -128,7 +124,7 @@
   <modal id="modal--player-one-done">
     <div class="modal">
       <div class="svg-wrapper--atom">
-        <img class="atom-svg" src="atom.svg" />
+        <img class="atom-svg" src="img/atom.svg" />
       </div>
       <h2>Nice job, Player 1. You angered the ruler in <span id="player-one-recap-score"></span> seconds.</h2>
       <button class="btn-close btn--language" id="player-two-start">Player Two Start</button>
@@ -140,7 +136,7 @@
     <div class="modal">
       <div class="svg-wrapper--final-modal">
         <div class="svg-wrapper--atom">
-          <img class="atom-svg--small" src="atom.svg" />
+          <img class="atom-svg--small" src="img/atom.svg" />
         </div>
         <div class="circle-svg-wrapper">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -184,7 +180,7 @@
         </svg>
       </div>
         <div class="svg-wrapper--atom">
-          <img class="atom-svg--small-cc" src="atom.svg" />
+          <img class="atom-svg--small-cc" src="img/atom.svg" />
         </div>
       </div>
       <h2><span id="winner-name"></span></h2>
@@ -194,7 +190,5 @@
 
     </div>
   </modal>
-
-
   </body>
 </html>

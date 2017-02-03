@@ -1,96 +1,6 @@
-/*font-family: 'Droid Sans Mono', monospace;
-font-family: 'Patua One', cursive;
-font-family: 'Lora'', serif;*/
-
 body {
   background: #ffeebd;
   box-sizing: border-box;
-}
-
-
-aside {
-  position: fixed;
-  height: calc(100% - 80px);
-  padding: 40px 0;
-  width: 25%;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: #decfa5;
-  color: #958c71;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.element {
-  animation: pulse 5s infinite;
-}
-
-/*@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: .7;
-  }
-  100% {
-    opacity: 1;
-  }
-}*/
-
-.status-bar-wrapper {
-  height: 100%;
-  width: 10%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  background: #decfa5;
-  text-align: center;
-  justify-content: center;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.height--90 {
-  height: 90%;
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  -ms-align-items: space-between;
-  align-items: space-between;
-}
-
-.notch {
-  width: 80%;
-  margin: 0 auto;
-  height: 1px;
-  background: #585240;
-}
-
-.height--5 {
-  width: 100%;
-  height: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.status-bar {
-  height: 0%;
-  width: 80%;
-  bottom: 0;
-  transform: translateX(-50%);
-  left: 50%;
-  position: absolute;
-  background-color: #FBB040;
-  transition: 2000ms;
-  animation: pulse 2s infinite;
 }
 
 main {
@@ -151,91 +61,26 @@ p {
   line-height: 1.8;
 }
 
-.main-game-wrapper {
 
-}
+/* DASHBOARD ON RIGHT SIDE ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*/
 
-.symbol-wrapper {
-  width: 90%;
+aside {
+  position: fixed;
+  height: calc(100% - 80px);
+  padding: 40px 0;
+  width: 25%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #decfa5;
+  color: #958c71;
+  text-align: center;
   display: flex;
   flex-wrap: wrap;
-}
-
-.symbol {
-  height: 100px;
-  width: 100px;
-  background-color: #958c71;
-  margin: 5px;
-  color: #ffeebd;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-family: 'Droid Sans Mono', monospace;
-  font-size: 3rem;
-  cursor: pointer;
-  transition: 200ms ease;
-}
-
-.bs {
-  height: 50px;
-  width: 50px;
-  background-color: #958c71;
-  margin: 5px;
-  padding: 5px 8px;
-  color: #ffeebd;
-  font-family: 'Droid Sans Mono', monospace;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.symbol:hover {
-  background-color: #585240;
-}
-
-.circle {
-  width: 90%;
-  background: #c9bc97;
-  border-radius: 50%;
-  margin: 5%;
-}
-
-.svg-wrapper--final-modal {
-  display: flex;
   align-items: center;
 }
 
-.circle-svg-wrapper {
-  width: 50%;
-  margin: 0 50px;
-}
-
-.st3 {
-  transition: 2000ms;
-}
-
-.st5 {
-  transition: 2000ms;
-}
-
-@keyframes eyes {
-  0% {
-    fill: red;
-  }
-  50% {
-    fill: #58595B;
-  }
-  100% {
-    fill: red;
-  }
-}
-
-.eye1 {
-  animation: eyes 2s infinite;
-}
-
-.eye2 {
-  animation: eyes 2s infinite;
-}
 
 .timer-wrapper {
   display: flex;
@@ -288,21 +133,6 @@ p {
   transform: rotate(15deg);
 }
 
-@keyframes flash {
-  0% {
-    top: -150%;
-  }
-  25% {
-    top: 50%;
-  }
-  75% {
-    top: 50%;
-  }
-  100% {
-    top: 150%;
-  }
-}
-
 .bullshit-alert {
   background: #f04e23;
   color: #ffeebd;
@@ -329,19 +159,216 @@ p {
   animation: flash 1500ms;
 }
 
-.thermometer-bulb {
-  width: 80px;
-  height: 80px;
-  background: red;
-  border-radius: 50%;
+/* STATUS BAR ON LEFT ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*/
+
+.status-bar-wrapper {
+  height: 100%;
+  width: 10%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background: #decfa5;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.thermometer-stick {
-  width: 60px;
-  height: 360px;
-  background: red;
-  border-radius: 30px;
+.status-bar {
+  height: 0%;
+  width: 80%;
+  bottom: 0;
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+  background-color: #FBB040;
+  transition: 2000ms;
+  animation: pulse 2s infinite;
 }
+
+.height--90 {
+  height: 90%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  -ms-align-items: space-between;
+  align-items: space-between;
+}
+
+.height--5 {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notch {
+  width: 80%;
+  margin: 0 auto;
+  height: 1px;
+  background: #585240;
+}
+
+
+
+
+/*MAIN GAME BOARD ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*/
+
+.instructions-text {
+  max-width: 800px;
+  width: 80%;
+  z-index: 2;
+}
+
+.symbol-wrapper {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.symbol {
+  height: 100px;
+  width: 100px;
+  background-color: #958c71;
+  margin: 5px;
+  color: #ffeebd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: 200ms ease;
+}
+
+.bs {
+  height: 50px;
+  width: 50px;
+  background-color: #958c71;
+  margin: 5px;
+  padding: 5px 8px;
+  color: #ffeebd;
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.symbol:hover {
+  background-color: #585240;
+}
+
+
+/* SVG STYLING ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*/
+
+@keyframes eyes {
+  0% {
+    fill: red;
+  }
+  50% {
+    fill: #58595B;
+  }
+  100% {
+    fill: red;
+  }
+}
+
+@keyframes flash {
+  0% {
+    top: -150%;
+  }
+  25% {
+    top: 50%;
+  }
+  75% {
+    top: 50%;
+  }
+  100% {
+    top: 150%;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes rotatecc {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(-359deg);
+  }
+}
+
+.circle {
+  width: 90%;
+  background: #c9bc97;
+  border-radius: 50%;
+  margin: 5%;
+}
+
+.svg-wrapper--final-modal {
+  display: flex;
+  align-items: center;
+}
+
+.circle-svg-wrapper {
+  width: 50%;
+  margin: 0 50px;
+}
+
+.st3 {
+  transition: 2000ms;
+}
+
+.st5 {
+  transition: 2000ms;
+}
+
+.eye1 {
+  animation: eyes 2s infinite;
+}
+
+.eye2 {
+  animation: eyes 2s infinite;
+}
+
+.atom-svg {
+  width: 200px;
+  opacity: .5;
+  z-index: 1;
+  animation: rotate 5s linear infinite;
+}
+
+.atom-svg--small {
+  width: 150px;
+  opacity: .5;
+  z-index: 1;
+  animation: rotate 5s linear infinite;
+}
+
+.atom-svg--small-cc {
+  width: 150px;
+  opacity: .5;
+  z-index: 1;
+  animation: rotatecc 5s linear infinite;
+}
+
+/* MODAL STYLING ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 
 modal {
   display: none;
@@ -370,8 +397,6 @@ modal {
   display: flex;
 }
 
-
-
 .modal {
   background: #ffeebd;
   color: #585240;
@@ -388,18 +413,6 @@ modal {
   text-align: center;
   max-height: 80%;
   overflow: scroll;
-}
-
-#language-modal.language-modal-active {
-  display: flex;
-}
-
-#player-one-over-modal.player-one-over-modal-active {
-  display: flex;
-}
-
-#game-over-modal.game-over-modal-active {
-  display: flex;
 }
 
 .row {
@@ -423,59 +436,4 @@ modal {
 
 .btn--language:hover {
   transform: rotate(15deg);
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(359deg);
-  }
-}
-
-@keyframes rotatecc {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(-180deg);
-  }
-  100% {
-    transform: rotate(-359deg);
-  }
-}
-
-.svg-wrapper--atom {
-
-}
-
-.atom-svg {
-  width: 200px;
-  opacity: .5;
-  z-index: 1;
-  animation: rotate 5s linear infinite;
-}
-
-.atom-svg--small {
-  width: 150px;
-  opacity: .5;
-  z-index: 1;
-  animation: rotate 5s linear infinite;
-}
-
-.atom-svg--small-cc {
-  width: 150px;
-  opacity: .5;
-  z-index: 1;
-  animation: rotatecc 5s linear infinite;
-}
-
-.instructions-text {
-  max-width: 800px;
-  width: 80%;
-  z-index: 2;
 }

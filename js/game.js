@@ -5,12 +5,11 @@ var Game = function() {
     this.player = '';
     this.endScore = 10;
     this.currentScore = 0;
-    this.maxTime = 1000;
     this.finalTime = 0;
     this.chosenLanguage = '';
 };
 
-// RANDOMIZE ARRAY of 20 ELEMENTS
+// RANDOMIZE AN ARRAY & CUT IT DOWN TO 20 ELEMENTS
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
   // While there remain elements to shuffle...
@@ -26,6 +25,7 @@ function shuffle(array) {
   return array.slice(0,19);
 }
 
+
 // CHOOSES ONE RANDOM ELEMENT FOR THE CORRECT ANSWER
 Game.prototype.randomElement = function(array) {
   var randomNum = Math.floor(Math.random() * array.length);
@@ -38,13 +38,14 @@ Game.prototype.randomElement = function(array) {
   return randomElement.id;
 };
 
+
 //CLEARS ELEMENTS FROM THE DIV BEFORE THE NEXT QUESTIO
 Game.prototype.clearElements = function() {
   $( ".symbol" ).remove();
 };
 
 
-// APPENDS THE ELEMENT DIVS INTO THE DOM
+// APPENDS THE ELEMENT DIV SQUARES INTO THE DOM / GAME BOARD
 Game.prototype.elementShuffle = function() {
   this.clearElements();
   var sliced = shuffle(elements);
@@ -62,7 +63,7 @@ Game.prototype.elementShuffle = function() {
 };
 
 
-// CHANGES ANGER LEVEL
+// ADJUSTS THE ANGER LEVEL
 Game.prototype.angerLevel = function() {
   var face = $('.st3');
   var eyes = $('.st5');
@@ -83,8 +84,9 @@ Game.prototype.angerLevel = function() {
 };
 
 
-//CHECKS THE GUESS & PULLS UP A NEW QUESTIOn
+//CHECKS THE GUESS & PULLS UP A NEW QUESTIO
 Game.prototype.checkGuess = function() {
+  //REMOVES THE BULLSHIT ALERT & APPENDS A NEW ONE SO THAT THE CSS ANIMATION CAN REPEAT
   $('.bullshit-alert').remove();
   $('aside').append('<div class="bullshit-alert"><h5>ALTERNATIVE FACT!</h5></div>');
   var self = this;
@@ -109,7 +111,7 @@ Game.prototype.checkGuess = function() {
 };
 
 
-//RECORDS TEH TIME & THE FINISHED TIME
+//RECORDS THE RUNNING TIME & THE FINISHED TIME OF EACH PLAYER
 Game.prototype.timer = function() {
   var self = this;
   var count = 1;
@@ -126,7 +128,7 @@ Game.prototype.timer = function() {
         case 'player1': $('#counter-1').html(self.finalTime);
                         playerOneScore = self.finalTime;
                         clearInterval(countUp);
-                        self.player = '';
+                        self.player = ''; // CLEARS OUT PLAYER INFO SO THAT PLAYER 2 CAN START
                         self.playerOneRecap();
                         break;
         case 'player2': $('#counter-2').html(self.finalTime);
