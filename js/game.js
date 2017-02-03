@@ -125,14 +125,14 @@ Game.prototype.timer = function() {
     if (self.currentScore >= self.endScore) {
       self.finalTime = count;
       switch(self.player) {
-        case 'player1': $('#counter-1').html(self.finalTime);
-                        playerOneScore = self.finalTime;
+        case 'player1': playerOneScore = self.finalTime;
+                        $('#counter-1').html(playerOneScore);
                         clearInterval(countUp);
                         self.player = ''; // CLEARS OUT PLAYER INFO SO THAT PLAYER 2 CAN START
                         self.playerOneRecap();
                         break;
-        case 'player2': $('#counter-2').html(self.finalTime);
-                        playerTwoScore = self.finalTime;
+        case 'player2': playerTwoScore = self.finalTime;
+                        $('#counter-2').html(self.finalTime);
                         clearInterval(countUp);
                         self.playerTwoRecap();
                         break;
@@ -142,6 +142,7 @@ Game.prototype.timer = function() {
   }, 1000);
 };
 
+// PLAYER ONE RECAP MODAL
 Game.prototype.playerOneRecap = function() {
   console.log("Player One's Score is " + playerOneScore);
   $('#modal--player-one-done').addClass('active');
@@ -151,6 +152,7 @@ Game.prototype.playerOneRecap = function() {
   });
 };
 
+// PLAYER TWO RECAP MODAL / GAME FINISHED MODAL
 Game.prototype.playerTwoRecap = function() {
   if (playerOneScore > playerTwoScore) {
     $('#winner-name').html("PLAYER TWO WINS!");
@@ -164,8 +166,7 @@ Game.prototype.playerTwoRecap = function() {
   });
 };
 
-
-//PULLS UP A NEW QUESTIO
+//NEW ROUND / NEW QUESTIO - AFTER THE LAST QUESTIO IS ANSWERED
 Game.prototype.newRound = function() {
   this.angerLevel();
   this.elementShuffle();
@@ -174,7 +175,7 @@ Game.prototype.newRound = function() {
 };
 
 
-// LANGUAGE SELECT
+// LANGUAGE SELECT MODAL
 Game.prototype.languageSelect = function() {
   var self = this;
   $('#modal--language').addClass('active');
@@ -199,6 +200,7 @@ Game.prototype.startFirstRound = function() {
   this.timer();
   this.checkGuess();
 };
+
 
 
 // CLICK EVENTS TO CREATE NEW GAMES ~ ~ ~ ~ ~ ~ ~ ~
