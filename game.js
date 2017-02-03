@@ -26,10 +26,6 @@ function shuffle(array) {
   return array.slice(0,19);
 }
 
-
-
-
-
 // CHOOSES ONE RANDOM ELEMENT FOR THE CORRECT ANSWER
 Game.prototype.randomElement = function(array) {
   var randomNum = Math.floor(Math.random() * array.length);
@@ -41,7 +37,6 @@ Game.prototype.randomElement = function(array) {
   $('.name-display').attr("id", randomElement.id);
   return randomElement.id;
 };
-
 
 //CLEARS ELEMENTS FROM THE DIV BEFORE THE NEXT QUESTIO
 Game.prototype.clearElements = function() {

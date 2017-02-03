@@ -339,15 +339,45 @@ var elements = [
 
 var fakeElements = [
 	{
-		name: "BlahBlahium",
+		name: "Blahium",
 		espName: "Falsónio",
 		symbol: "Bs",
-		id: 37,
+		id: 100,
 	},
 	{
-		name: "Fakium",
+		name: "Fakeium",
 		espName: "Mentiráneo",
 		symbol: "Bs",
-		id: 38,
+		id: 101,
+	},
+	{
+		name: "Twitterium",
+		espName: "Twitterio",
+		symbol: "Bs",
+		id: 102,
+	},
+	{
+		name: "Crazium",
+		espName: "Lóconio",
+		symbol: "Bs",
+		id: 103,
+	},
+	{
+		name: "Fakeium",
+		espName: "Mentiráneo",
+		symbol: "Bs",
+		id: 101,
+	},
+	{
+		name: "Psychonium",
+		espName: "Psicópatanio",
+		symbol: "Bs",
+		id: 102,
+	},
+	{
+		name: "Insanium",
+		espName: "Insanonio",
+		symbol: "Bs",
+		id: 103,
 	},
 ]
