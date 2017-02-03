@@ -198,6 +198,11 @@ p {
   margin: 5%;
 }
 
+.circle-svg-wrapper {
+  width: 50%;
+  margin: 0 auto;
+}
+
 .st3 {
   transition: 2000ms;
 }
@@ -205,6 +210,28 @@ p {
 .st5 {
   transition: 2000ms;
 }
+
+@keyframes eyes {
+  0% {
+    fill: red;
+  }
+  50% {
+    fill: black;
+  }
+  100% {
+    fill: red;
+  }
+}
+
+.eye1 {
+  animation: eyes 2s infinite;
+}
+
+.eye2 {
+  animation: eyes 2s infinite;
+}
+
+
 
 .timer-wrapper {
   display: flex;
@@ -273,8 +300,8 @@ p {
 }
 
 .bullshit-alert {
-  background: red;
-  color: white;
+  background: #f04e23;
+  color: #ffeebd;
   position: absolute;
   width: 200px;
   height: 200px;
@@ -290,7 +317,7 @@ p {
 .bullshit-alert h5 {
   font-family: 'Droid Sans Mono', monospace;
   text-transform: uppercase;
-  color: white;
+  color: #ffeebd;
   font-size: 1.5rem
 }
 
@@ -356,6 +383,8 @@ modal {
   padding: 5%;
   justify-content: center;
   text-align: center;
+  max-height: 80vh;
+  overflow: scroll;
 }
 
 #language-modal.language-modal-active {

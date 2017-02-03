@@ -3,7 +3,7 @@ var playerTwoScore = 0;
 
 var Game = function() {
     this.player = '';
-    this.endScore = 10;
+    this.endScore = 1;
     this.currentScore = 0;
     this.maxTime = 1000;
     this.finalTime = 0;
@@ -151,10 +151,10 @@ Game.prototype.playerOneRecap = function() {
 
 Game.prototype.playerTwoRecap = function() {
   if (playerOneScore > playerTwoScore) {
-    $('#winner-name').html("Player Two Wins");
+    $('#winner-name').html("PLAYER TWO WINS!");
   }
   else {
-    $('#winner-name').html("Player One Wins");
+    $('#winner-name').html("PLAYER ONE WINS!");
   }
   $('#modal--game-over').addClass('active');
   $('#btn-refresh').click(function(){
