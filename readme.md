@@ -3,6 +3,7 @@
 # Atomic Clock
 
 ## A timed quiz on the periodic table of elements.
+Link here [https://chuglas.github.io/periodic-table-quiz/](https://chuglas.github.io/periodic-table-quiz/)
 
 ### Technologies Used
 - vanilla javscript
@@ -17,4 +18,6 @@ I took a very step-by-step process with this project. My first goal was to get a
 Ultimately, the most difficult aspect for me was
 
 ### Unsolved Problems
-Unsolved Problems
+- Still working on some Firefox & Safari styling issues (mostly animations).
+- The game works on mobile, but I would like to make mobile styling better.
+- I would like to refactor so fake elements show up more often as the selected element.
